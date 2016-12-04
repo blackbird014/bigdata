@@ -7,14 +7,18 @@ country_lines = sc.textFile('file:///home/cloudera/Downloads/big-data-3/final-pr
 country_lines.count()
 
 # Convert each line into a pair of words
-pair= country_lines.flatMap(lambda line: line.split(','))
+#pair= country_lines.flatMap(lambda line: line.split(','))
 
 # Convert each pair of words into a tuple
 #from IPython.core.debugger import Tracer
 #Tracer()()
-country_tuples = pair.map(lambda word : (word,1))
+#country_tuples = pair.map(lambda word : (word,1))
 #pair.count()
-country_tuples.count()
+#country_tuples.count()
+
+# Convert each line into a pair of wordsthe 2 steps above in one shot
+#pair= country_lines.flatMap(lambda line: line.split(','))
+country_tuples= country_lines.map(lambda line:tuple(line.split(","))).collect()
 
 # Create the DataFrame, look at schema and contents
 countryDF = sqlContext.createDataFrame(country_tuples, ["country", "code"])
