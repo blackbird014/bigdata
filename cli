@@ -2,3 +2,5 @@ You can export the result of MongoDB queries using the mongoexport command in th
 In our case
 to json: mongoexport --db sample --collection users --out users.json
 to csv: mongoexport --db sample --collection users --type csv -- fields field1,field2,stilltodecide --out users.csv
+in particular with my setup>
+./mongodb/bin/mongoexport --db sample --collection users --type csv --fields tweet_text,user.Location --out users.csv
