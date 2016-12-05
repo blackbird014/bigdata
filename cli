@@ -6,3 +6,6 @@ in particular with my setup>
 ./mongodb/bin/mongoexport --db sample --collection users --type csv --fields tweet_text,user.Location --out users.csv
 or just
 ./mongodb/bin/mongoexport --db sample --collection users --type csv --fields tweet_text --out users.csv
+
+[cloudera@quickstart mongodb]$ sudo find / -type f -name user.csv
+/home/cloudera/Downloads/big-data-3/mongodb/user.csv
